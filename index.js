@@ -176,7 +176,15 @@ function log() {
   throw new Error('not implemented');
 }
 
+function user() {
+  return {
+    username: _command('git', ['config', 'user.name']),
+    email: _command('git', ['config', 'user.email'])
+  }
+}
+
 module.exports = {
+  user: user,
   branch : branch,
   count: count,
   date: date,
